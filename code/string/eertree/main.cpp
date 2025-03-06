@@ -11,7 +11,6 @@
  * Gdy \texttt{only\_even\_lens} to może nie istnieć odpowiedź, wtedy \texttt{.mn == n + 1, .cnt == 0}.
  * \texttt{construct\_min\_palindromic\_split} zwraca palindromiczne przedziały pokrywające słowo.
  */
-// BEGIN HASH
 constexpr int alpha = 26;
 struct Eertree {
 	vector<array<int, alpha>> edge;
@@ -38,9 +37,8 @@ struct Eertree {
 		}
 		return last = edge[last][c];
 	}
-}; // END HASH
+}; 
 int add(int a, int b) { return a + b; } // Dopisać modulo jeżeli trzeba.
-// BEGIN HASH
 struct Dp { int mn, mn_i, cnt; };
 Dp operator+(Dp l, Dp r) {
 	return {min(l.mn, r.mn), l.mn < r.mn ? l.mn_i : r.mn_i, add(l.cnt, r.cnt)};
@@ -67,8 +65,7 @@ vector<Dp> palindromic_split_dp(vector<int> str, bool only_even_lens = false) {
 		}
 	}
 	return ans;
-} // END HASH
-// BEGIN HASH
+} 
 vector<pair<int, int>> construct_min_palindromic_split(vector<Dp> ans) {
 	if(ans.back().mn == ssize(ans) + 1)
 		return {};
@@ -79,5 +76,5 @@ vector<pair<int, int>> construct_min_palindromic_split(vector<Dp> ans) {
 	REP(i, ssize(split) - 1)
 		split[i + 1].first = split[i].second + 1;
 	return split;
-} // END HASH
+} 
 

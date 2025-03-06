@@ -3,7 +3,6 @@
  * pamiętać o constexpr.
  */
 #pragma once
-// BEGIN HASH
 #ifdef CHANGABLE_MOD
 int mod = 998'244'353;
 #else
@@ -30,7 +29,7 @@ int powi(int a, int b) {
 }
 int inv(int x) {
 	return powi(x, mod - 2);
-} // END HASH
+} 
 struct BinomCoeff {
 	vector<int> fac, rev;
 	BinomCoeff(int n) {

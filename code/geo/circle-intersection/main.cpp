@@ -3,7 +3,6 @@
  *   Gdy \texttt{ssize(circle\_circle(...)) == 3} to jest nieskończenie wiele rozwiązań.
  */
 #include "../point/main.cpp"
-// BEGIN HASH
 vector<P> circle_line(D r, D a, D b, D c) {
 	D len_ab = a * a + b * b,
 	  x0 = -a * c / len_ab,
@@ -21,8 +20,7 @@ vector<P> circle_line(D r, D a, D b, D c) {
 }
 vector<P> circle_line(D x, D y, D r, D a, D b, D c) {
 	return circle_line(r, a, b, c + (a * x + b * y));
-} // END HASH
-// BEGIN HASH
+} 
 vector<P> circle_circle(D x1, D y1, D r1, D x2, D y2, D r2) {
 	x2 -= x1;
 	y2 -= y1;
@@ -38,4 +36,4 @@ vector<P> circle_circle(D x1, D y1, D r1, D x2, D y2, D r2) {
 	for(P &p : vec)
 		p += P(x1, y1);
 	return vec;
-} // END HASH
+} 

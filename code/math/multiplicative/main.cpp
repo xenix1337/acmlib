@@ -5,7 +5,6 @@
  *   wartości w $0$ niezdefiniowane.
  */
 #include "../sieve/main.cpp"
-// BEGIN HASH
 vector<int> mobius(int n) {
 	sieve(n);
 	vector<int> ans(n + 1, 0);
@@ -15,8 +14,7 @@ vector<int> mobius(int n) {
 		if (i / p % p) ans[i] = -ans[i / p];
 	}
 	return ans;
-} // END HASH
-// BEGIN HASH
+} 
 vector<int> totient(int n) {
 	sieve(n);
 	vector<int> ans(n + 1, 1);
@@ -25,4 +23,4 @@ vector<int> totient(int n) {
 		ans[i] = ans[i / p] * (p - bool(i / p % p));
 	}
 	return ans;
-} // END HASH
+} 

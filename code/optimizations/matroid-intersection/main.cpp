@@ -8,7 +8,6 @@
  * komentarz co znaczą. W przeciwnym wypadku intersectMatroids zrobi robotę wołając init.
  */
 
-// BEGIN HASH
 template<class T, class U>
 vector<bool> intersectMatroids(T& A, U& B, int n) {
 	vector<bool> ans(n);
@@ -61,7 +60,7 @@ vector<bool> intersectMatroids(T& A, U& B, int n) {
 		}
 	}
 	return ans;
-} // END HASH
+} 
 // Matroid where each element has color
 // and set is independent iff for each color c
 // #{elements of color c} <= maxAllowed[c].

@@ -6,7 +6,6 @@
 inline int getchar_unlocked() { return _getchar_nolock(); }
 inline void putchar_unlocked(char c) { _putchar_nolock(c); }
 #endif
-// BEGIN HASH
 int fastin() {
 	int n = 0, c = getchar_unlocked();
 	while(isspace(c))
@@ -16,8 +15,7 @@ int fastin() {
 		c = getchar_unlocked();
 	}
 	return n;
-} // END HASH
-// BEGIN HASH
+} 
 int fastin_negative() {
 	int n = 0, negative = false, c = getchar_unlocked();
 	while(isspace(c))
@@ -31,8 +29,7 @@ int fastin_negative() {
 		c = getchar_unlocked();
 	}
 	return negative ? -n : n;
-} // END HASH
-// BEGIN HASH
+} 
 double fastin_double() {
 	double x = 0, t = 1;
 	int negative = false, c = getchar_unlocked();
@@ -55,8 +52,7 @@ double fastin_double() {
 		}
 	}
 	return negative ? -x : x;
-} // END HASH
-// BEGIN HASH
+} 
 void fastout(int x) {
 	if(x == 0) {
 		putchar_unlocked('0');
@@ -78,4 +74,3 @@ void fastout(int x) {
 	putchar_unlocked(' ');
 }
 void nl() { putchar_unlocked('\n'); }
-// END HASH

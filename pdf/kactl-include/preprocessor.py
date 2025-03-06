@@ -72,12 +72,12 @@ def hash_fragments_or_whole(txt):
 
     def hash_fragment(l, r):
         assert txt[l] == '// BEGIN HASH'
-        assert txt[r].endswith('// END HASH')
+        assert txt[r].endswith('')
         hsh = get_hash('\n'.join(txt[l + 1 : r + 1]))
         txt[l] += ' ' + hsh
 
     for r in range(len(txt)):
-        if txt[r].endswith('// END HASH'):
+        if txt[r].endswith(''):
             for l in range(r - 1, -1, -1):
                 if txt[l] == '// BEGIN HASH':
                     hash_fragment(l, r)
@@ -180,7 +180,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
         foldername = caption.split('/')[-2] if 'main' in caption else caption.split('/')[-1]
         addref(foldername, outstream)
         if hsh is not None:
-            out.append(r"\newline\scriptsize{\#%s}" % hsh)
+            # out.append(r"\newline\scriptsize{\#%s}" % hsh)
+            pass
         if includelist:
             out.append(r"\scriptsize{, includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
         out.append(r"\vspace{-1em}")
