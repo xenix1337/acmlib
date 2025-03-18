@@ -168,7 +168,7 @@ def processwithcomments(caption, instream, outstream, listingslang):
         nsource = nsource.rstrip() + source[end:]
     nsource = nsource.strip()
 
-    hsh, nsource = hash_fragments_or_whole(nsource)
+    # hsh, nsource = hash_fragments_or_whole(nsource)
 
     # Produce output
     out = []
@@ -179,15 +179,15 @@ def processwithcomments(caption, instream, outstream, listingslang):
     else:
         foldername = caption.split('/')[-2] if 'main' in caption else caption.split('/')[-1]
         addref(foldername, outstream)
-        if hsh is not None:
-            # out.append(r"\newline\scriptsize{\#%s}" % hsh)
-            pass
+        # if hsh is not None:
+        #     # out.append(r"\newline\scriptsize{\#%s}" % hsh)
+        #     pass
         if includelist:
-            out.append(r"\scriptsize{, includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
-        out.append(r"\vspace{-1em}")
+            out.append(r"\scriptsize{includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
+        # out.append(r"\vspace{-1em}")
 
         if commands.get("Opis"):
-            out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Opis"]))
+            out.append(r"\scriptsize{%s}" % ("\n" + ordoescape(commands["Opis"]) + "\n"))
         langstr = "language="+listingslang
         out.append(r"\begin{lstlisting}[%s]" % langstr)
         out.append(nsource)

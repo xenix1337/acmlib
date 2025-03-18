@@ -6,7 +6,6 @@
  *   tam gdzie oznaczono komentarzem.
  */
 namespace Treap {
-	// BEGIN HASH
 	mt19937 rng_key(0);
 	struct Node {
 		int prio, cnt = 1;

@@ -121,10 +121,10 @@
 \def\@makechapterhead#1{
 
 	\parindent \z@ \raggedright \normalfont
-		\interlinepenalty\@M
+		% \interlinepenalty\@M
 	{\underline{\Large \bfseries #1} }
 	\ifnum \c@secnumdepth >\m@ne
-		{\Large\bfseries (\thechapter) \par\nobreak }
+		{\Large\bfseries (\thechapter) }
 	\fi
 	\startcontents[chapters]
 }
@@ -229,23 +229,23 @@
   \begingroup
     \setlength{\dimen@}{#1}%
     \vskip\dimen@
-    \penalty 9999%
+    % \penalty 9999%
     \vskip -\dimen@
     \vskip\z@skip
   \endgroup
 }
 
 \newcommand{\myimport}[2][]{ % Using empty default parameter
-	\myneedspace{3\baselineskip}
-	\penalty-100
+	% \myneedspace{3\baselineskip}
+	% \penalty-100
 	\input|"rm -f \@builddir/main.tmp" % Don't include old main.tmp on failure.
-	\input|"python2 pdf/kactl-include/preprocessor.py -i \@kactldir/#2/main.cpp -o \@builddir/main.tmp #1 > /dev/null"
-	\immediate\input{\@builddir/main.tmp}
+	\input|"python2 pdf/kactl-include/preprocessor.py -i \@kactldir/#2/main.cpp -o \@kactldir/#2/main.tmp #1 > /dev/null"
+	\immediate\input{\@kactldir/#2/main.tmp}
 }
 
 \newcommand{\myrawimport}[2][]{ % Using empty default parameter
 	\myneedspace{3\baselineskip}
-	\penalty-100
+	% \penalty-100
 	\input|"rm -f \@builddir/main.tmp" % Don't include old main.tmp on failure.
 	\input|"python2 pdf/kactl-include/preprocessor.py -i \@kactldir/#2 -o \@builddir/main.tmp #1 > /dev/null"
 	\immediate\input{\@builddir/main.tmp}
