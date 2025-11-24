@@ -2,7 +2,6 @@
  * Opis: Operacje na wielomianach mod $998244353$,
  * deriv, integr O(n), powi\_deg O(n \cdot deg), sqrt, inv, log, exp, powi, div O(n \log n), powi\_slow, eval, inter O(n \log ^2 n)
  * Ogólnie to przepisujemy co chcemy.
- * Funkcje oznaczone jako KONIECZNE są wymagane. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
  * \texttt{deriv(a)} zwraca $a'$,
  * \texttt{integr(a)} zwraca $\int a$,
  * \texttt{powi(\_deg\_slow)(a, k, n)} zwraca $a^k (\bmod x^n)$,
