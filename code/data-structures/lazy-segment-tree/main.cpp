@@ -7,7 +7,7 @@ struct Node {
 };
 void push_to_sons(Node &n, Node &l, Node &r) {
 	auto push_to_son = [&](Node &c) {
-		c.sum += n.lazy * c.sz;
+		c.sum += n.lazy * c.sz; // min/max bez c.sz
 		c.lazy += n.lazy;
 	};
 	push_to_son(l);
@@ -16,13 +16,13 @@ void push_to_sons(Node &n, Node &l, Node &r) {
 }
 Node merge(Node l, Node r) {
 	return Node{
-		.sum = l.sum + r.sum,
+		.sum = l.sum + r.sum, // tu min/max
 		.lazy = 0,
 		.sz = l.sz + r.sz
 	};
 }
 void add_to_base(Node &n, int val) {
-	n.sum += n.sz * LL(val);
+	n.sum += n.sz * LL(val); // min/max bez n.sz
 	n.lazy += val;
 } 
 struct Tree {
